@@ -2060,6 +2060,18 @@ body::before {
   color: rgba(233, 228, 223, 0.65);
 }
 
+.footer-credit-link {
+  color: rgba(233, 228, 223, 0.92);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  transition: color 0.3s ease, opacity 0.3s ease;
+}
+
+.footer-credit-link:hover {
+  color: var(--pure-white);
+  opacity: 0.9;
+}
+
 .footer-social {
   display: flex;
   gap: 1rem;

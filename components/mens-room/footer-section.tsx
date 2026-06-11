@@ -16,7 +16,16 @@ export const FooterSection = (): React.JSX.Element => {
             {CONTACT.address} · {CONTACT.city} · {CONTACT.phone}
           </p>
           <p>
-            © 2025 Brian John&apos;s The Men&apos;s Room. All rights reserved.
+            © 2026 Brian John&apos;s The Men&apos;s Room, Powered By{" "}
+            <a
+              href={CONTACT.fadezyHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="footer-credit-link"
+            >
+              Fadezy
+            </a>
+            . All rights reserved.
           </p>
         </div>
       </Reveal>

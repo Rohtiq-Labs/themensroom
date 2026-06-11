@@ -285,4 +285,5 @@ export const CONTACT = {
   instagram: "@instabarber_brian",
   instagramHref: "https://instagram.com/instabarber_brian",
   mapsHref: "https://maps.google.com/?q=990+Cedarbridge+Ave+Brick+Township+NJ",
+  fadezyHref: "https://fadezy.rohtiqlabs.com",
 } as const;
