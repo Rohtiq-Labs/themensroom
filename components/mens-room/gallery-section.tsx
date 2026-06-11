@@ -19,20 +19,35 @@ const GalleryCard = ({
 }: GalleryCardProps): React.JSX.Element => {
   return (
     <div
-      className="gallery-item depth-card-hover"
+      className={`gallery-item depth-card-hover${item.type === "video" ? " is-video" : ""}`}
       aria-hidden={clone || undefined}
     >
       <div className="gallery-item-inner">
-        <SiteImage
-          src={item.src}
-          alt={clone ? "" : item.alt}
-          className="gallery-image img-zoom"
-          sizes="280px"
-        />
+        {item.type === "video" ? (
+          <video
+            className="gallery-image gallery-video"
+            autoPlay
+            muted
+            loop
+            playsInline
+            aria-label={clone ? undefined : item.alt}
+          >
+            <source src={item.src} type="video/mp4" />
+          </video>
+        ) : (
+          <SiteImage
+            src={item.src}
+            alt={clone ? "" : item.alt}
+            className="gallery-image img-zoom"
+            sizes="280px"
+          />
+        )}
       </div>
       <div className="gallery-item-overlay">
         <span className="gallery-item-label">{item.label}</span>
-        <span className="gallery-item-view">View Style</span>
+        <span className="gallery-item-view">
+          {item.type === "video" ? "Watch Reel" : "View Style"}
+        </span>
       </div>
     </div>
   );

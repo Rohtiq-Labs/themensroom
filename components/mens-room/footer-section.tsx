@@ -1,4 +1,9 @@
 import { Reveal } from "@/components/mens-room/reveal";
+import {
+  InstagramIcon,
+  MapIcon,
+  WhatsAppIcon,
+} from "@/components/mens-room/social-icons";
 import { CONTACT } from "@/data/mens-room-content";
 
 export const FooterSection = (): React.JSX.Element => {
@@ -38,14 +43,16 @@ export const FooterSection = (): React.JSX.Element => {
             className="social-link"
             aria-label="Instagram"
           >
-            📸
+            <InstagramIcon />
           </a>
           <a
-            href={CONTACT.phoneHref}
+            href={CONTACT.whatsappHref}
+            target="_blank"
+            rel="noopener noreferrer"
             className="social-link"
-            aria-label="Phone"
+            aria-label="WhatsApp"
           >
-            📞
+            <WhatsAppIcon />
           </a>
           <a
             href={CONTACT.mapsHref}
@@ -54,7 +61,7 @@ export const FooterSection = (): React.JSX.Element => {
             className="social-link"
             aria-label="Location on Google Maps"
           >
-            📍
+            <MapIcon />
           </a>
         </div>
       </Reveal>

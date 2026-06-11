@@ -3,19 +3,9 @@
 import { useState } from "react";
 
 import { RevealGroup } from "@/components/mens-room/reveal";
-import { SERVICES, type ServiceMobileTitle } from "@/data/mens-room-content";
+import { SERVICES } from "@/data/mens-room-content";
 
 const defaultActiveIndex = SERVICES.findIndex((service) => service.featured);
-
-const renderMobileTitle = (title: ServiceMobileTitle): React.JSX.Element => {
-  return (
-    <>
-      {title.prefix ? <>{title.prefix} </> : null}
-      <em>{title.emphasis}</em>
-      {title.suffix ? <> {title.suffix}</> : null}
-    </>
-  );
-};
 
 export const ServicesMobileList = (): React.JSX.Element => {
   const [activeIndex, setActiveIndex] = useState(
@@ -36,20 +26,23 @@ export const ServicesMobileList = (): React.JSX.Element => {
             className={`service-mobile-row${activeIndex === index ? " is-active" : ""}`}
             onClick={() => setActiveIndex(index)}
             aria-expanded={activeIndex === index}
-            aria-label={`${service.name}, ${service.mobilePrice}`}
+            aria-label={`${service.name}, ${service.price}, ${service.duration}`}
           >
             <div className="service-mobile-copy">
-              <h3 className="service-mobile-title">
-                {renderMobileTitle(service.mobileTitle)}
-              </h3>
-              <p className="service-mobile-desc">{service.mobileDescription}</p>
+              <h3 className="service-mobile-title">{service.name}</h3>
               {activeIndex === index ? (
-                <a href="#contact" className="service-mobile-book btn-lift">
-                  Book This Service
-                </a>
+                <>
+                  <p className="service-mobile-desc">{service.description}</p>
+                  <a href="#contact" className="service-mobile-book btn-lift">
+                    Book This Service
+                  </a>
+                </>
               ) : null}
             </div>
-            <span className="service-mobile-price">{service.mobilePrice}</span>
+            <div className="service-mobile-meta">
+              <span className="service-mobile-price">{service.price}</span>
+              <span className="service-mobile-duration">{service.duration}</span>
+            </div>
           </button>
           {index < SERVICES.length - 1 ? (
             <div className="service-mobile-divider" aria-hidden="true">

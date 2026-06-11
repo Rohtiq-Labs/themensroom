@@ -8,95 +8,59 @@ export const SITE_IMAGES = {
   walkins: `${IMAGE_DIR}/703948033_871215655296842_3826847281718043064_n.jpg`,
 } as const;
 
+const GALLERY_DIR = `${IMAGE_DIR}/gallery`;
+
 export type GalleryItem = {
   src: string;
   label: string;
   alt: string;
+  type: "image" | "video";
 };
 
 export const GALLERY_ITEMS: GalleryItem[] = [
   {
-    src: `${IMAGE_DIR}/687010406_1383018113630651_5287943104508668498_n.jpg`,
+    src: `${GALLERY_DIR}/687010406_1383018113630651_5287943104508668498_n.jpg`,
     label: "Skin Fade",
     alt: "Client with a precision skin fade and textured crop",
+    type: "image",
   },
   {
-    src: `${IMAGE_DIR}/684973537_1002474442110589_3853364074983287342_n.jpg`,
-    label: "Taper Fade",
-    alt: "Client with a clean taper fade haircut",
-  },
-  {
-    src: `${IMAGE_DIR}/671234556_952273684223709_8429796404652387330_n.jpg`,
+    src: `${GALLERY_DIR}/671234556_952273684223709_8429796404652387330_n.jpg`,
     label: "Beard Sculpt",
     alt: "Client with a sculpted beard and sharp lineup",
+    type: "image",
   },
   {
-    src: `${IMAGE_DIR}/696084049_1352057530323981_3626754825281238682_n.jpg`,
-    label: "Classic Cut",
-    alt: "Client with a classic barbershop haircut",
-  },
-  {
-    src: `${IMAGE_DIR}/714931316_18598585183055589_6333633461735811050_n.jpg`,
-    label: "Slick Back",
-    alt: "Client with a slick back style and groomed beard",
-  },
-  {
-    src: `${IMAGE_DIR}/707796627_1043547314667260_4622217484182500623_n.jpg`,
-    label: "Textured Crop",
-    alt: "Client with a textured crop and high fade",
-  },
-  {
-    src: `${IMAGE_DIR}/566687823_18431601895101539_8144986203268708623_n.jpg`,
-    label: "Drop Fade",
-    alt: "Client with a drop fade and sharp hairline",
-  },
-  {
-    src: `${IMAGE_DIR}/703948033_871215655296842_3826847281718043064_n.jpg`,
-    label: "High Skin Fade",
-    alt: "Client with a high skin fade in the barber chair",
-  },
-  {
-    src: `${IMAGE_DIR}/525186364_2072149253193723_7216786200435455184_n.jpg`,
-    label: "Hard Part Fade",
-    alt: "Client with a hard part fade and beard blend",
-  },
-  {
-    src: `${IMAGE_DIR}/557706883_18224450608306498_3831120223404920349_n.jpg`,
-    label: "Precision Line",
-    alt: "Client with precise hairline and fade work",
-  },
-  {
-    src: `${IMAGE_DIR}/560066967_668703102949868_9186460170609458887_n.jpg`,
-    label: "Cut & Color",
-    alt: "Client showing a fresh cut and color service",
-  },
-  {
-    src: `${IMAGE_DIR}/686757765_4390864357828625_8826662750568422246_n.jpg`,
-    label: "Burst Fade",
-    alt: "Client with a burst fade haircut",
-  },
-  {
-    src: `${IMAGE_DIR}/716050453_971464522548531_680444366984623505_n.jpg`,
+    src: `${GALLERY_DIR}/716050453_971464522548531_680444366984623505_n.jpg`,
     label: "Combo Cut",
     alt: "Client after a haircut and beard combo service",
+    type: "image",
   },
   {
-    src: `${IMAGE_DIR}/670946980_940971268570465_3983723778674177608_n.jpg`,
-    label: "Line Up",
-    alt: "Client with a crisp lineup and fade",
+    src: `${GALLERY_DIR}/703948033_871215655296842_3826847281718043064_n.jpg`,
+    label: "In The Chair",
+    alt: "Client receiving a fresh cut at The Men's Room",
+    type: "image",
   },
   {
-    src: `${IMAGE_DIR}/687655193_18590354293055589_4886872600044002837_n.jpg`,
-    label: "The Shop",
-    alt: "Interior of Brian John's The Men's Room barber lounge",
+    src: `${GALLERY_DIR}/gal-01.mp4`,
+    label: "Shop Reel",
+    alt: "Barbershop styling reel at The Men's Room",
+    type: "video",
+  },
+  {
+    src: `${GALLERY_DIR}/gal-02.mp4`,
+    label: "Fresh Fade",
+    alt: "Fade haircut video from The Men's Room",
+    type: "video",
+  },
+  {
+    src: `${GALLERY_DIR}/gal-03.mp4`,
+    label: "Grooming Session",
+    alt: "Grooming session video at The Men's Room",
+    type: "video",
   },
 ];
-
-export type ServiceMobileTitle = {
-  prefix?: string;
-  emphasis: string;
-  suffix?: string;
-};
 
 export type Service = {
   image: string;
@@ -104,10 +68,8 @@ export type Service = {
   name: string;
   description: string;
   price: string;
+  duration: string;
   featured?: boolean;
-  mobileTitle: ServiceMobileTitle;
-  mobileDescription: string;
-  mobilePrice: string;
 };
 
 export type HoursRow = {
@@ -179,70 +141,84 @@ export const MARQUEE_ITEMS = [
 export const SERVICES: Service[] = [
   {
     image: `${IMAGE_DIR}/687010406_1383018113630651_5287943104508668498_n.jpg`,
-    imageAlt: "Precision haircut with skin fade",
-    name: "Haircut",
-    description:
-      "Precision cuts tailored to your style — from classic fades and taper cuts to textured crops and everything in between. Always sharp, always clean.",
-    price: "Starting at $30",
-    mobileTitle: { prefix: "THE", emphasis: "SIGNATURE", suffix: "HAIRCUT" },
-    mobileDescription: "Precision cuts tailored to your personal style.",
-    mobilePrice: "$30",
-  },
-  {
-    image: `${IMAGE_DIR}/566687823_18431601895101539_8144986203268708623_n.jpg`,
-    imageAlt: "Beard sculpting and lineup",
-    name: "Beard Sculpting",
-    description:
-      "Expert beard shaping, lining, and sculpting to define your look. We craft clean edges and full shapes that complement your face perfectly.",
-    price: "Starting at $20",
-    mobileTitle: { emphasis: "BEARD", suffix: "SCULPTING" },
-    mobileDescription: "Expert shaping, lining, and sculpting for your look.",
-    mobilePrice: "$20",
+    imageAlt: "Senior haircut service at The Men's Room",
+    name: "Senior Haircut (65+)",
+    description: "A tailored haircut experience for guests aged 65 and over.",
+    price: "$30.00",
+    duration: "30 mins",
   },
   {
     image: `${IMAGE_DIR}/696084049_1352057530323981_3626754825281238682_n.jpg`,
-    imageAlt: "Hot towel barbershop treatment",
-    name: "Hot Towel Treatment",
-    description:
-      "The classic barbershop ritual. A warm, steamed towel opens pores and preps skin for an ultra-close, incredibly smooth shave experience.",
-    price: "Add-on Available",
-    mobileTitle: { emphasis: "HOT TOWEL", suffix: "TREATMENT" },
-    mobileDescription: "Classic steamed towel ritual for an ultra-smooth finish.",
-    mobilePrice: "Add-on",
-  },
-  {
-    image: `${IMAGE_DIR}/707796627_1043547314667260_4622217484182500623_n.jpg`,
-    imageAlt: "Haircut and beard combo service",
-    name: "Haircut + Beard Combo",
-    description:
-      "The full treatment. Walk in looking good, walk out looking great. Our most popular service — a complete refresh from head to beard.",
-    price: "Starting at $45",
-    featured: true,
-    mobileTitle: { emphasis: "MASTER", suffix: "GROOMING COMBO" },
-    mobileDescription: "Our most popular full refresh from head to beard.",
-    mobilePrice: "$45",
+    imageAlt: "Sea salt spray styling product",
+    name: "Sea Salt Spray",
+    description: "Finish your look with sea salt spray for texture and hold.",
+    price: "$10.00",
+    duration: "30 mins",
   },
   {
     image: `${IMAGE_DIR}/560066967_668703102949868_9186460170609458887_n.jpg`,
-    imageAlt: "Cut and color service result",
-    name: "Cut & Color",
-    description:
-      "Whether it's a subtle tint or a bold transformation, our cut & color service combines styling expertise with professional color application.",
-    price: "Starting at $60",
-    mobileTitle: { emphasis: "CUT &", suffix: "COLOR" },
-    mobileDescription: "Subtle tints to bold transformations with expert color.",
-    mobilePrice: "$60",
+    imageAlt: "Men's full color service",
+    name: "Mens Full Color",
+    description: "Full head of color",
+    price: "$65.00",
+    duration: "45 mins",
+  },
+  {
+    image: `${IMAGE_DIR}/707796627_1043547314667260_4622217484182500623_n.jpg`,
+    imageAlt: "Kids haircut with wash and design",
+    name: "Kids Haircut with Wash & Design",
+    description: "A complete kids cut with wash and styled finish.",
+    price: "$40.00",
+    duration: "30 mins",
+  },
+  {
+    image: `${IMAGE_DIR}/684973537_1002474442110589_3853364074983287342_n.jpg`,
+    imageAlt: "Kids haircut service",
+    name: "Kids Haircut",
+    description: "Clean, age-appropriate cuts for young clients.",
+    price: "$35.00",
+    duration: "30 mins",
   },
   {
     image: `${IMAGE_DIR}/525186364_2072149253193723_7216786200435455184_n.jpg`,
-    imageAlt: "Precision grooming with hard part fade",
-    name: "Precision Grooming",
-    description:
-      "A complete grooming experience with attention to every detail — neck clean-up, sideburns, hairline definition, and finishing touches that elevate your look.",
-    price: "Starting at $25",
-    mobileTitle: { emphasis: "PRECISION", suffix: "GROOMING" },
-    mobileDescription: "Detailed clean-up and finishing for a polished look.",
-    mobilePrice: "$25",
+    imageAlt: "Haircut and color service",
+    name: "Haircut + Color",
+    description: "A full haircut paired with professional color application.",
+    price: "$100.00",
+    duration: "1 hr 30 mins",
+  },
+  {
+    image: `${IMAGE_DIR}/566687823_18431601895101539_8144986203268708623_n.jpg`,
+    imageAlt: "Haircut and beard grooming service",
+    name: "Haircut & Beard",
+    description: "Complete grooming with a sharp cut and detailed beard work.",
+    price: "$60.00",
+    duration: "30 mins",
+    featured: true,
+  },
+  {
+    image: `${IMAGE_DIR}/671234556_952273684223709_8429796404652387330_n.jpg`,
+    imageAlt: "Men's precision haircut",
+    name: "Haircut",
+    description: "Precision cuts tailored to your style and finish preference.",
+    price: "$45.00",
+    duration: "30 mins",
+  },
+  {
+    image: `${IMAGE_DIR}/686757765_4390864357828625_8826662750568422246_n.jpg`,
+    imageAlt: "Executive beard and color service",
+    name: "Executive Beard + Color",
+    description: "The executive Beard + color service",
+    price: "$65.00",
+    duration: "1 hr",
+  },
+  {
+    image: `${IMAGE_DIR}/557706883_18224450608306498_3831120223404920349_n.jpg`,
+    imageAlt: "Beard trim and lineup",
+    name: "Beard Trim",
+    description: "Expert beard shaping, lining, and clean-up.",
+    price: "$30.00",
+    duration: "30 mins",
   },
 ];
 
@@ -256,14 +232,7 @@ export const HOURS: HoursRow[] = [
   { day: "Sunday", time: "By Appointment" },
 ];
 
-export const BOOKING_SERVICES = [
-  "Haircut",
-  "Beard Sculpting",
-  "Haircut + Beard Combo",
-  "Cut & Color",
-  "Hot Towel Treatment",
-  "Precision Grooming",
-] as const;
+export const BOOKING_SERVICES = SERVICES.map((service) => service.name);
 
 export const BOOKING_TIMES = [
   "10:00 AM",
@@ -283,7 +252,8 @@ export const CONTACT = {
   phone: "732-898-6800",
   phoneHref: "tel:7328986800",
   instagram: "@instabarber_brian",
-  instagramHref: "https://instagram.com/instabarber_brian",
+  instagramHref: "https://www.instagram.com/instabarber_brian/",
+  whatsappHref: "https://wa.me/17328986800",
   mapsHref: "https://maps.google.com/?q=990+Cedarbridge+Ave+Brick+Township+NJ",
   fadezyHref: "https://fadezy.rohtiqlabs.com",
 } as const;
