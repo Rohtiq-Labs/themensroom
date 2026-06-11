@@ -1,33 +1,18 @@
-import { SiteImage } from "@/components/mens-room/site-image";
-import { SERVICES } from "@/data/mens-room-content";
+import { ServicesMobileList } from "@/components/mens-room/services-mobile-list";
+import { Reveal } from "@/components/mens-room/reveal";
 
 export const ServicesSection = (): React.JSX.Element => {
   return (
-    <section className="services" id="services">
-      <div className="services-header">
-        <div className="section-eyebrow">What We Offer</div>
-        <h2>
-          Our <em>Services</em>
-        </h2>
-      </div>
+    <section className="services section-shell" id="services">
+      <div className="services-glow" aria-hidden="true" />
+      <div className="services-inner">
+        <header className="services-header-modern">
+          <Reveal direction="up" delay={0}>
+            <h2 className="services-title-mobile">Services</h2>
+          </Reveal>
+        </header>
 
-      <div className="services-grid">
-        {SERVICES.map((service) => (
-          <div key={service.name} className="service-card scroll-reveal">
-            <div className="service-image-wrap">
-              <SiteImage
-                src={service.image}
-                alt={service.imageAlt}
-                className="service-image"
-                sizes="(max-width: 768px) 100vw, 33vw"
-              />
-            </div>
-            <div className="service-name">{service.name}</div>
-            <div className="service-desc">{service.description}</div>
-            <div className="service-price">{service.price}</div>
-            <div className="service-line" aria-hidden="true" />
-          </div>
-        ))}
+        <ServicesMobileList />
       </div>
     </section>
   );

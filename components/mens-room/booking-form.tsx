@@ -19,7 +19,7 @@ export const BookingForm = (): React.JSX.Element => {
     <div className="booking-form">
       <h3>
         Request an{" "}
-        <em style={{ fontStyle: "italic", color: "var(--gold)" }}>
+        <em style={{ fontStyle: "italic", color: "var(--silver)" }}>
           Appointment
         </em>
       </h3>
@@ -113,7 +113,7 @@ export const BookingForm = (): React.JSX.Element => {
 
       <button
         type="button"
-        className={`form-submit${submitted ? " success" : ""}`}
+        className={`form-submit btn-lift${submitted ? " success" : ""}`}
         onClick={handleSubmit}
       >
         {submitted ? "✓ Request Sent!" : "Confirm Booking"}

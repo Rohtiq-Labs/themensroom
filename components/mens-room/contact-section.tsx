@@ -1,19 +1,24 @@
 import { BookingForm } from "@/components/mens-room/booking-form";
 import { HoursGrid } from "@/components/mens-room/hours-grid";
+import { Reveal, RevealGroup } from "@/components/mens-room/reveal";
 import { CONTACT } from "@/data/mens-room-content";
 
 export const ContactSection = (): React.JSX.Element => {
   return (
-    <section className="contact" id="contact">
+    <section className="contact section-shell" id="contact">
       <div className="contact-info">
-        <div className="section-eyebrow">Get In Touch</div>
-        <h2>
-          Visit Us &<br />
-          <em>Book</em> Today
-        </h2>
+        <Reveal direction="up" delay={0}>
+          <div className="section-eyebrow">Get In Touch</div>
+        </Reveal>
+        <Reveal direction="up" delay={80}>
+          <h2>
+            Visit Us &<br />
+            <em>Book</em> Today
+          </h2>
+        </Reveal>
 
-        <div className="contact-details">
-          <div className="contact-item scroll-reveal">
+        <RevealGroup className="contact-details" stagger={100} direction="up">
+          <div className="contact-item interactive-card">
             <span className="contact-icon" aria-hidden="true">
               📍
             </span>
@@ -26,7 +31,7 @@ export const ContactSection = (): React.JSX.Element => {
               </div>
             </div>
           </div>
-          <div className="contact-item scroll-reveal">
+          <div className="contact-item interactive-card">
             <span className="contact-icon" aria-hidden="true">
               📞
             </span>
@@ -39,7 +44,7 @@ export const ContactSection = (): React.JSX.Element => {
               </div>
             </div>
           </div>
-          <div className="contact-item scroll-reveal">
+          <div className="contact-item interactive-card">
             <span className="contact-icon" aria-hidden="true">
               📸
             </span>
@@ -57,12 +62,16 @@ export const ContactSection = (): React.JSX.Element => {
               </div>
             </div>
           </div>
-        </div>
+        </RevealGroup>
 
-        <HoursGrid />
+        <Reveal direction="up" delay={200}>
+          <HoursGrid />
+        </Reveal>
       </div>
 
-      <BookingForm />
+      <Reveal direction="right" delay={100}>
+        <BookingForm />
+      </Reveal>
     </section>
   );
 };

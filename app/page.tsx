@@ -5,8 +5,9 @@ import { GallerySection } from "@/components/mens-room/gallery-section";
 import { HeroSection } from "@/components/mens-room/hero-section";
 import { MarqueeBand } from "@/components/mens-room/marquee-band";
 import { NavBar } from "@/components/mens-room/nav-bar";
-import { ScrollRevealInit } from "@/components/mens-room/scroll-reveal-init";
+import { SectionDivider } from "@/components/mens-room/section-divider";
 import { ServicesSection } from "@/components/mens-room/services-section";
+import { TestimonialSection } from "@/components/mens-room/testimonial-section";
 import { WalkinsBanner } from "@/components/mens-room/walkins-banner";
 
 export default function Home(): React.JSX.Element {
@@ -15,13 +16,18 @@ export default function Home(): React.JSX.Element {
       <NavBar />
       <HeroSection />
       <MarqueeBand />
+      <SectionDivider />
       <AboutSection />
+      <SectionDivider />
       <ServicesSection />
+      <SectionDivider />
       <GallerySection />
+      <SectionDivider />
+      <TestimonialSection />
       <WalkinsBanner />
+      <SectionDivider />
       <ContactSection />
       <FooterSection />
-      <ScrollRevealInit />
     </div>
   );
 }
